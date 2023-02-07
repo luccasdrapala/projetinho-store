@@ -6,5 +6,3 @@ require __DIR__ . '/routes/web.php';
 use Pecee\SimpleRouter\SimpleRouter;
 
 SimpleRouter::start();
-
-echo 'hello world';
