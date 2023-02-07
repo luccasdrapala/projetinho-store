@@ -1,0 +1,11 @@
+{
+    "name":"luccas/crud",
+    "autoload": {
+        "psr-4" :{
+            "App\\":"app/"
+        }
+    },
+    "require": {
+        "pecee/simple-router": "4.3.7.2"
+    }
+}
