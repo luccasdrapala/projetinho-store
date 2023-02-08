@@ -4,7 +4,7 @@ namespace App\Db;
 use PDO;
 use PDOException;   
 
-class database {
+class Database {
 
     //variaveis de conexão com o banco de dados
     const HOST = 'localhost';
@@ -12,7 +12,7 @@ class database {
     const USER = 'root';
     const PASS = '';
 
-    private $table;
+    protected $table;
     private $connection;
 
     public function __construct($table = null) 
