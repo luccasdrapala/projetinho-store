@@ -8,7 +8,7 @@ class ProductTypeModel extends Database{
 
     public function __construct()
     {
-        $this->table = 'ProductTypeModel';
+        $this->table = 'product_type';
     }
 
     // /**

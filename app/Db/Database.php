@@ -70,6 +70,18 @@ class Database {
         return $prepare->execute(array_values($data));
     }
 
+    public function insert(array $data) 
+    {    
+        $fields = array_keys($data);
+        $binds = array_pad([], count($fields), '?');
+
+        $sql = 'INSERT INTO ' . $this->table . '(' . implode(',', $fields) . ') VALUES (' . implode(',', $binds);
+        
+        $prepare = $this->connection->prepare($sql);
+
+        return $prepare->execute(array_values($data));
+    }
+
 }
 
 ?>

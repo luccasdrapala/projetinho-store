@@ -9,11 +9,12 @@ use App\Helpers\View;
 class ProductTypeController extends Controller 
 {
     protected ProductTypeModel $productTypeModel;
+    private array $data;
 
     public function __construct()
     {
         $this->productTypeModel = new ProductTypeModel();
-        // $this->data[''] = 
+        //$this->data['product_type'] = 
     }
 
     public function index()
