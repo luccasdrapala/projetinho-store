@@ -8,11 +8,11 @@ class View
     {
         extract($data); //function to put the Model data in index
 
-        $file = \dirname(__FILE__, 2). "/Views/{$viewName}.php"; //verify if the file exists
+        $file = \dirname(__FILE__, 2). "/Views/{$viewName}"; //verify if the file exists
 
         if(!file_exists($file))
         {
-            die ("File not Found");
+            die ("File {$viewName} not Found");
         }
 
         require $file;

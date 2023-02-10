@@ -2,6 +2,6 @@
 
 use Pecee\SimpleRouter\SimpleRouter;
 
-SimpleRouter::get('/', function() {
-    return 'Hello worlda';
-});
+SimpleRouter::setDefaultNamespace('App\Controllers');
+
+SimpleRouter::get('/product_types', 'ProductTypeController@index');

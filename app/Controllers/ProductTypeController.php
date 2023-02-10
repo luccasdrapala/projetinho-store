@@ -19,10 +19,11 @@ class ProductTypeController extends Controller
     public function index()
     {
         View::include('includes/header.php');
-        View::include('ProductTypes/index_type_products.php');
+        View::include('productTypes/index-type-products.php'); //, $this->data
         View::include('includes/footer.php');
     }
-
+    
+    
 }
 
 
