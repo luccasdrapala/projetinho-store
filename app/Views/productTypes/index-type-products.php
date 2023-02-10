@@ -1,3 +1,4 @@
+<div class="typeProductsSection">
     <h2 class="mt-4 fw-light">Products Types Register</h2>
     <hr>
 
@@ -68,8 +69,9 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button id="addProductType" type="submit" class="btn btn-primary">Register</button>
             </div>
         </div>
+    </div>
     </div>
     </div>
