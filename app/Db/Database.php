@@ -65,9 +65,9 @@ class Database {
 
     public function update(int $id, array $data) :bool
     {
-        $array_fields = implode("=?", array_keys($data));
+        $array_fields = implode('=?,',array_keys($data)) . '=?';
 
-        $sql = "UPDATE FROM {$this->table} SET {$array_fields} WHERE id = {$id}";
+        $sql = "UPDATE {$this->table} SET {$array_fields} WHERE id = {$id}";
         $prepare = $this->connection->prepare($sql);
         
         return $prepare->execute(array_values($data));

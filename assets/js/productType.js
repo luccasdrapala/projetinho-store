@@ -19,7 +19,7 @@ function saveType(){
 
     //if was updated
     if(document.getElementById('id').value != ''){
-        params.url = `product_type/update/${document.getElementById('id').value}`
+        params.url = `product_types/update/${document.getElementById('id').value}`
     }
 
     $.ajax({
@@ -29,31 +29,32 @@ function saveType(){
         dataType: 'JSON',
         success: (data) => {
             if (data.code >= 200) {
-                toastr.success('Product created/updated!', 'Success!')
+                console.log('Sucesso')
             } else {
-                toastr.warning(data.data, 'Warning!')
+                console.log('Warning')
             }
-
-            window.location.reload(); //recarrega a pagina toda
+            // window.location.reload(); //recarrega a pagina toda
         },
         error: (e) => {
             console.log(e)
             if (e.responseJSON.code == 400) { 
-                toastr.warning(e.responseJSON.data, 'Warning!')
+                console.log('Warning!')
             } else {
-                toastr.error(e.responseJSON.data, 'Error!')
+                console.log('erro')
             } 
         }
     })
+
+    window.location.reload(); //recarrega a pagina toda
 }
 
 function changeType(id, product_description, product_tax){
 
+    new bootstrap.Modal(document.getElementById('exampleModal')).show()
+
     document.getElementById('typeProduct').value = product_description
     document.getElementById('taxProduct').value = product_tax
     document.getElementById('id').value = id
-
-    new bootstrap.Modal(document.getElementById('exampleModal')).show()
 
 }
 
@@ -70,7 +71,7 @@ function typeDelete(){
     console.log(document.getElementById('id').value)
 
     $.ajax({
-        url: `product_type/delete/${document.getElementById('id').value}`,
+        url: `product_types/delete/${document.getElementById('id').value}`,
         method: 'DELETE',
         dataType: 'JSON',
         success: (data) => {
@@ -78,6 +79,7 @@ function typeDelete(){
                 toastr.success('Product is deleted!', 'Success!')
                 window.location.reload(); //recarrega a pagina toda
             }
+            window.location.reload(); //recarrega a pagina toda
         },
         error: (e) => {
             toastr.error('Ops, a error ocurred!', 'Error!')

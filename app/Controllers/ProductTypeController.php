@@ -50,7 +50,18 @@ class ProductTypeController extends Controller
             echo json_encode(["data" => $response]);
             exit;            
         }
+    }
 
+    public function updateProductType(int $id) {
+
+        $data = $this->inputPost();
+        $this->productTypeModel->update($id, $data);
+        exit;
+    }
+
+    public function deleteProductType(int $id){
+
+        $this->productTypeModel->delete($id);
     }
 }
 
