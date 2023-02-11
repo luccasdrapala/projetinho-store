@@ -14,7 +14,7 @@ class ProductTypeController extends Controller
     public function __construct()
     {
         $this->productTypeModel = new ProductTypeModel();
-        //$this->data['product_type'] = 
+        // $this->data['product_type'] = 
     }
 
     public function index()
@@ -24,7 +24,30 @@ class ProductTypeController extends Controller
         View::include('includes/footer.php');
     }
     
-    
+    public function createProductType() {
+
+        $data = $this->inputPost();
+        $validator = [];
+
+        if(empty($_POST['product_type']))
+        {
+            $validator[] = "Product Type is required";
+        }
+
+        if(empty($_POST['product_tax']))
+        {
+            $validator[] = "Product Tax is required";
+        }
+
+        if(count($validator) > 0)
+        {
+            //tratar erro
+        } else {
+
+            $this->productTypeModel->insert($data);
+        }
+
+    }
 }
 
 
