@@ -1,20 +1,3 @@
-// console.log('passeiiiii')
-
-// if(document.getElementById("typeProductsSection"))
-
-// {
-//     document.getElementById("addProductType").addEventListener("click", function(){
-
-//         document.getElementById("typeProduct").value = '';
-
-//         document.getElementById("taxProduct").value = '';
-
-//         // new bootstrap.Modal(document.querySelector('modalTypeProducts')).show()
-//         //show the modal
-
-//     })
-
-// }
 
 function clean()
 {   
@@ -72,4 +55,32 @@ function changeType(id, product_description, product_tax){
 
     new bootstrap.Modal(document.getElementById('exampleModal')).show()
 
+}
+
+function deleteModal(id){
+    
+    document.getElementById('id').value = id
+    console.log(id)
+    new bootstrap.Modal(document.getElementById('deleteModal')).show()
+
+}
+
+function typeDelete(){
+    
+    console.log(document.getElementById('id').value)
+
+    $.ajax({
+        url: `product_type/delete/${document.getElementById('id').value}`,
+        method: 'DELETE',
+        dataType: 'JSON',
+        success: (data) => {
+            if (data.code === 200) {
+                toastr.success('Product is deleted!', 'Success!')
+                window.location.reload(); //recarrega a pagina toda
+            }
+        },
+        error: (e) => {
+            toastr.error('Ops, a error ocurred!', 'Error!')
+        }
+    })
 }

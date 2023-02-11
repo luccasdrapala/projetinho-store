@@ -28,7 +28,7 @@
                             Update
                         </button>
 
-                        <button class="btn btn-danger">Delete</button>
+                        <button onclick="deleteModal('<?=$product->id?>')" class="btn btn-danger">Delete</button>
 
                         <input type="hidden" id="id" value="">
                         
@@ -38,39 +38,11 @@
         </tbody> 
     </table>
 
-    <!-- Modal
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Type Product Register</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                
-                <div class="mt-2">
-                    <label for="typeProduct" class="form-label">Product Type Description</label>
-                    <input class="form-control" id="typeProduct" type="text">
-                </div>
-
-                <div class="mt-2">
-                    <label for="taxProduct" class="form-label">Product Tax</label>
-                    <input class="form-control" id="taxProduct" type="number" placeholder="0,00">
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button id="addProductType" onclick="saveType()" type="submit" class="btn btn-primary">Register</button>
-            </div>
-        </div>
-    </div> -->
-
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Product Data</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -94,4 +66,28 @@
       </div>
 
     </div>
+    </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+        
+                    <p>Are you sure that you want to delete <span class="font-weight-bold"><?=$product->product_description?></span> </p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" onclick="typeDelete()" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
     </div>
