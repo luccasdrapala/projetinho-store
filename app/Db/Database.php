@@ -8,16 +8,19 @@ class Database {
 
     //variaveis de conexão com o banco de dados
     const HOST = 'localhost';
-    const NAME = 'projetinho-store';
+    const NAME = 'projetinho_store';
     const USER = 'root';
     const PASS = '';
 
     protected $table;
-    private $connection;
 
-    public function __construct($table = null) 
+    /**
+     * @var \PDO
+     */
+    protected $connection;
+
+    public function __construct() 
     {
-        $this->table = $table;
         $this->setConnection();
     }
     
@@ -75,8 +78,8 @@ class Database {
         $fields = array_keys($data);
         $binds = array_pad([], count($fields), '?');
 
-        $sql = 'INSERT INTO ' . $this->table . '(' . implode(',', $fields) . ') VALUES (' . implode(',', $binds);
-        
+        $sql = 'INSERT INTO ' . $this->table . '(' . implode(',', $fields) . ') VALUES (' . implode(',', $binds) . ')';
+
         $prepare = $this->connection->prepare($sql);
 
         return $prepare->execute(array_values($data));

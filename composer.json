@@ -3,7 +3,10 @@
     "autoload": {
         "psr-4" :{
             "App\\":"app/"
-        }
+        },
+        "files": [
+            "config.php"
+        ]
     },
     "require": {
         "pecee/simple-router": "4.3.7.2"

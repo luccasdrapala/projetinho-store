@@ -14,13 +14,13 @@ class ProductTypeController extends Controller
     public function __construct()
     {
         $this->productTypeModel = new ProductTypeModel();
-        // $this->data['product_type'] = 
+        $this->data['product_type'] = $this->productTypeModel->get();
     }
 
     public function index()
     {
         View::include('includes/header.php');
-        View::include('productTypes/index-type-products.php'); //, $this->data
+        View::include('productTypes/index-type-products.php', $this->data); //, $this->data
         View::include('includes/footer.php');
     }
     
@@ -29,7 +29,7 @@ class ProductTypeController extends Controller
         $data = $this->inputPost();
         $validator = [];
 
-        if(empty($_POST['product_type']))
+        if(empty($_POST['product_description']))
         {
             $validator[] = "Product Type is required";
         }
@@ -39,12 +39,16 @@ class ProductTypeController extends Controller
             $validator[] = "Product Tax is required";
         }
 
-        if(count($validator) > 0)
-        {
-            //tratar erro
+        if(count($validator) > 0){
+            
+            echo json_encode(["data" => "Data not found"]);
+            exit;
+
         } else {
 
-            $this->productTypeModel->insert($data);
+            $response = $this->productTypeModel->insert($data);
+            echo json_encode(["data" => $response]);
+            exit;            
         }
 
     }

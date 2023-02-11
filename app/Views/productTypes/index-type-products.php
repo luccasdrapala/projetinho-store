@@ -2,7 +2,8 @@
     <h2 class="mt-4 fw-light">Products Types Register</h2>
     <hr>
 
-    <button class="btn btn-warning mt-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">New Type</button>
+    <!-- <button class="btn btn-warning mt-3" data-bs-toggle="modal" onclick="clean()" data-bs-target="#staticBackdrop">New Type</button> -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Launch demo modal</button>
 
     <table class="table mt-3 table-secondary border border-dark">
 
@@ -15,39 +16,27 @@
             </tr>
        </thead>
        <tbody>
-            <tr class="text-center align-middle">
-                <th>1</th>
-                <th>Book</th>
-                <th>7.5</th>
-                <th>
-                    <a href="#">
-                        <button class="btn btn-success">Update</button>
-                    </a>
+       <?php foreach ($product_type as $product): ?>
+                    <tr>
+                        <td><?=$product->id?></td>
+                        <td><?=$product->product_description?></td>
+                        <td><?=$product->product_tax?></td>
+                        <td>
+                            <!-- <button
+                                type="button"
+                                class="btn btn-purple btn-sm"
+                                onclick="editModal('<?=$product->id?>', '<?=$product->description?>', '<?=$product->price?>', '<?=$product->product_type_id?>')"><i class="fa fa-edit"></i>
+                            </button>
 
-                    <a href="#">
-                        <button class="btn btn-danger">Delete</button>
-                    </a>
-                </th>
-            </tr>
-            <tr class="text-center align-middle">
-                <th>2</th>
-                <th>Weed</th>
-                <th>4.2</th>
-                <th>
-                    <a href="#">
-                        <button class="btn btn-success">Update</button>
-                    </a>
-
-                    <a href="#">
-                        <button class="btn btn-danger">Delete</button>
-                    </a>
-                </th>
-            </tr>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteProduct('<?=$product->id?>')"> <i class="fa fa-trash"></i></button> -->
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
        </tbody> 
     </table>
 
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- Modal
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
@@ -55,7 +44,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <!-- BODY -->
+                
                 <div class="mt-2">
                     <label for="typeProduct" class="form-label">Product Type Description</label>
                     <input class="form-control" id="typeProduct" type="text">
@@ -69,9 +58,37 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button id="addProductType" type="submit" class="btn btn-primary">Register</button>
+                <button id="addProductType" onclick="saveType()" type="submit" class="btn btn-primary">Register</button>
             </div>
         </div>
-    </div>
+    </div> -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+      <div class="mt-2">
+                    <label for="typeProduct" class="form-label">Product Type Description</label>
+                    <input class="form-control" id="typeProduct" type="text">
+                </div>
+
+                <div class="mt-2">
+                    <label for="taxProduct" class="form-label">Product Tax</label>
+                    <input class="form-control" id="taxProduct" type="number" placeholder="0,00">
+                </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" onclick="saveType()" class="btn btn-primary">Save changes</button>
+      </div>
+
     </div>
     </div>
