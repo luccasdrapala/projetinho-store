@@ -29,13 +29,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Sales</a>
+                <a class="nav-link" aria-current="page" href="#">Sales</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Products</a>
+            <a class="nav-link" href="/products">Products</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Type Products</a>
+            <a class="nav-link" href="/product_types">Type Products</a>
             </li>
         </ul>
         </div>
