@@ -23,8 +23,8 @@ function clean()
     document.getElementById("taxProduct").value = '';
 }
 
-function saveType()
-{
+function saveType(){
+
     const params = {
     url: `product_types/create`,
         method: 'POST',
@@ -57,4 +57,13 @@ function saveType()
             } 
         }
     })
+}
+
+function changeType(id, product_description, product_tax){
+
+    document.getElementById('typeProduct').value = product_description
+    document.getElementById('taxProduct').value = product_tax
+
+    new bootstrap.Modal(document.getElementById('exampleModal')).show()
+
 }

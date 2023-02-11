@@ -3,7 +3,7 @@
     <hr>
 
     <!-- <button class="btn btn-warning mt-3" data-bs-toggle="modal" onclick="clean()" data-bs-target="#staticBackdrop">New Type</button> -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Launch demo modal</button>
+    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">New Type</button>
 
     <table class="table mt-3 table-secondary border border-dark">
 
@@ -16,23 +16,33 @@
             </tr>
        </thead>
        <tbody>
-       <?php foreach ($product_type as $product): ?>
-                    <tr>
-                        <td><?=$product->id?></td>
-                        <td><?=$product->product_description?></td>
-                        <td><?=$product->product_tax?></td>
-                        <td>
-                            <!-- <button
-                                type="button"
-                                class="btn btn-purple btn-sm"
-                                onclick="editModal('<?=$product->id?>', '<?=$product->description?>', '<?=$product->price?>', '<?=$product->product_type_id?>')"><i class="fa fa-edit"></i>
-                            </button>
+            <?php foreach ($product_type as $product): ?>
+                <tr class="text-center align-middle">
+                    <td><?=$product->id?></td>
+                    <td><?=$product->product_description?></td>
+                    <td><?=$product->product_tax?></td>
+                    <td>
+                        <button 
+                            onclick="changeType('<?=$product->id?>', '<?=$product->product_description?>', '<?=$product->product_tax?>')" 
+                            class="btn btn-success">
+                            Update
+                        </button>
+                        
 
-                            <button type="button" class="btn btn-danger btn-sm" onclick="deleteProduct('<?=$product->id?>')"> <i class="fa fa-trash"></i></button> -->
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-       </tbody> 
+                        <a href="#">
+                            <button class="btn btn-danger">Delete</button>
+                        </a>
+                    <!-- <button
+                        type="button"
+                        class="btn btn-purple btn-sm"
+                        onclick="editModal('<?=$product->id?>', '<?=$product->description?>', '<?=$product->price?>', '<?=$product->product_type_id?>')"><i class="fa fa-edit"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-danger btn-sm" onclick="deleteProduct('<?=$product->id?>')"> <i class="fa fa-trash"></i></button> -->
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody> 
     </table>
 
     <!-- Modal
