@@ -18,20 +18,25 @@
 
 function clean()
 {   
-    console.log('Pasei aqui')
     document.getElementById("typeProduct").value = '';
     document.getElementById("taxProduct").value = '';
+    document.getElementById("id").value = '';
 }
 
 function saveType(){
 
     const params = {
-    url: `product_types/create`,
+        url: `product_types/create`,
         method: 'POST',
         data: {
             product_description: document.getElementById('typeProduct').value,
             product_tax: document.getElementById('taxProduct').value
         }
+    }
+
+    //if was updated
+    if(document.getElementById('id').value != ''){
+        params.url = `product_type/update/${document.getElementById('id').value}`
     }
 
     $.ajax({
@@ -63,6 +68,7 @@ function changeType(id, product_description, product_tax){
 
     document.getElementById('typeProduct').value = product_description
     document.getElementById('taxProduct').value = product_tax
+    document.getElementById('id').value = id
 
     new bootstrap.Modal(document.getElementById('exampleModal')).show()
 

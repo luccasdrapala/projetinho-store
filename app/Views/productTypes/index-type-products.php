@@ -3,7 +3,7 @@
     <hr>
 
     <!-- <button class="btn btn-warning mt-3" data-bs-toggle="modal" onclick="clean()" data-bs-target="#staticBackdrop">New Type</button> -->
-    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">New Type</button>
+    <button type="button" onclick="clean()" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">New Type</button>
 
     <table class="table mt-3 table-secondary border border-dark">
 
@@ -27,18 +27,11 @@
                             class="btn btn-success">
                             Update
                         </button>
+
+                        <button class="btn btn-danger">Delete</button>
+
+                        <input type="hidden" id="id" value="">
                         
-
-                        <a href="#">
-                            <button class="btn btn-danger">Delete</button>
-                        </a>
-                    <!-- <button
-                        type="button"
-                        class="btn btn-purple btn-sm"
-                        onclick="editModal('<?=$product->id?>', '<?=$product->description?>', '<?=$product->price?>', '<?=$product->product_type_id?>')"><i class="fa fa-edit"></i>
-                    </button>
-
-                    <button type="button" class="btn btn-danger btn-sm" onclick="deleteProduct('<?=$product->id?>')"> <i class="fa fa-trash"></i></button> -->
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -96,7 +89,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" onclick="clean()" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" onclick="saveType()" class="btn btn-primary">Save changes</button>
       </div>
 
