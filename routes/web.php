@@ -9,3 +9,5 @@ SimpleRouter::post('/product_types/create', 'ProductTypeController@createProduct
 SimpleRouter::post('/product_types/update/{id}', 'ProductTypeController@updateProductType');
 SimpleRouter::delete('/product_types/delete/{id}', 'ProductTypeController@deleteproductType');
 
+SimpleRouter::get('/products', 'ProductController@index');
+

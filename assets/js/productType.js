@@ -85,4 +85,5 @@ function typeDelete(){
             toastr.error('Ops, a error ocurred!', 'Error!')
         }
     })
+    window.location.reload(); //recarrega a pagina toda
 }

@@ -4,11 +4,12 @@ namespace App\Models;
 
 use App\Db\Database;
 
-class ProductSaleModel extends Database{
+class ProductModel extends Database{
 
     public function __construct()
     {
-        $this->table = 'ProductSaleModel';
+        parent::__construct();
+        $this->table = 'product';
     }
 
     // /**
