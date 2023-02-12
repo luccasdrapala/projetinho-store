@@ -29,19 +29,24 @@ class ProductController extends Controller
         View::include('includes/footer.php');
     }
 
-    public function create(){
+    public function createProduct(){
 
         $data = $this->inputPost();
         $validator = [];
 
-        if(empty($_POST['product_description']))
+        if(empty($_POST['description']))
         {
             $validator[] = "Product Type is required";
         }
 
-        if(empty($_POST['product_tax']))
+        if(empty($_POST['price']))
         {
             $validator[] = "Product Tax is required";
+        }
+
+        if(empty($_POST['type_product_id']))
+        {
+            $validator[] = "Id is required";
         }
 
         if(count($validator) > 0){
@@ -51,11 +56,21 @@ class ProductController extends Controller
 
         } else {
 
-            //$response = $this->productTypeModel->insert($data);
+            $response = $this->productModel->insert($data);
             echo json_encode(["data" => $response]);
             exit;            
         }
+    }
 
+    public function updateProduct(int $id){
+
+        $data = $this->inputPost();
+        $this->productModel->update($id, $data);
+        exit;
+    }
+
+    public function deleteProduct($id){
+        $this->productModel->delete($id);
     }
 }
 ?>

@@ -33,7 +33,7 @@ function saveType(){
             } else {
                 console.log('Warning')
             }
-            // window.location.reload(); //recarrega a pagina toda
+            indow.location.reload(); //recarrega a pagina toda
         },
         error: (e) => {
             console.log(e)

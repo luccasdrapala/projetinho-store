@@ -2,7 +2,7 @@
     <hr>
 
     <!-- MODAL TRIGGER -->
-    <button type="button" onclick="clean()" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">New Type</button>
+    <button type="button" onclick="cleanProduct()" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">New Type</button>
 
     <table class="table mt-3 table-secondary border border-dark">
 
@@ -24,15 +24,15 @@
                 <th><?=$products->type_description?></th>
                 <th>
                     <a href="#">
-                        <button class="btn btn-success">Update</button>
+                        <button onclick="changeProduct('<?=$products->id?>', '<?=$products->description?>', '<?=$products->price?>', '<?=$products->type_id?>')" class="btn btn-success">Update</button>
                     </a>
 
                     <a href="#">
-                        <button class="btn btn-danger">Delete</button>
+                        <button onclick="showDeleteModal('<?=$products->id?>')" class="btn btn-danger">Delete</button>
                     </a>
 
                     <input type="hidden" id="id" value="">
-                    
+
                 </th>
             </tr>
             <?php endforeach;?>
@@ -79,11 +79,34 @@
       
       </div>
       <div class="modal-footer">
-        <button type="button" onclick="" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" onclick="" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" onclick="saveProduct()" class="btn btn-primary">Save changes</button>
       </div>
 
     </div>
     </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deleteProductModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+        
+                    <p>Are you sure that you want to delete ?</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" onclick="productDelete()" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
     </div>
 

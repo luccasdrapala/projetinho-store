@@ -81,7 +81,7 @@
                 </div>
                 <div class="modal-body">
         
-                    <p>Are you sure that you want to delete <span class="font-weight-bold"><?=$product->product_description?></span> </p>
+                    <p>Are you sure that you want to delete ?</p>
 
                 </div>
                 <div class="modal-footer">
