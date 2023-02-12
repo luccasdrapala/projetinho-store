@@ -12,16 +12,27 @@ class ProductModel extends Database{
         $this->table = 'product';
     }
 
-    // /**
-    //  * Product Primary Key
-    //  * @var integer
-    //  */
-    // protected int $id;
+    public function getQuery()
+    {
+        $sql = 
+        "
+        SELECT 
+            p.id as `id`, 
+            p.price as `price`, 
+            p.description as `description`,
+            p.type_product_id as `type_id`, 
+            pt.product_description AS `type_description`, 
+            pt.product_tax as `product_tax`
+        FROM 
+            `product` as `p` 
+        LEFT JOIN 
+            `product_type` as `pt`
+        on
+            (p.type_product_id = pt.id)
+        ";
 
-    // /**
-    //  * 
-    //  */
-
+        return $this->executeQuery($sql);
+    }
 }
 
 ?>

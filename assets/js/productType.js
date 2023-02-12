@@ -3,7 +3,7 @@ function clean()
 {   
     document.getElementById("typeProduct").value = '';
     document.getElementById("taxProduct").value = '';
-    document.getElementById("id").value = '';
+    document.getElementById("id").value = ''; //testar o erro do id 0
 }
 
 function saveType(){
