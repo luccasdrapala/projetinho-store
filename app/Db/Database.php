@@ -79,10 +79,11 @@ class Database {
         $binds = array_pad([], count($fields), '?');
 
         $sql = 'INSERT INTO ' . $this->table . '(' . implode(',', $fields) . ') VALUES (' . implode(',', $binds) . ')';
-
         $prepare = $this->connection->prepare($sql);
 
-        return $prepare->execute(array_values($data));
+        $prepare->execute(array_values($data));
+
+        return (int) $this->connection->lastInsertId();
     }
 
 }

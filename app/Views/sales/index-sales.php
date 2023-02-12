@@ -80,8 +80,8 @@
                     <th>Quantity</th>
                     <th>Price</th>
                     <th>Tax</th>
-                    <th>Date</th>
                     <th>Total Sale</th>
+                    <th>Date</th>
                     <th>Options</th>
                 </tr>
             </thead>
