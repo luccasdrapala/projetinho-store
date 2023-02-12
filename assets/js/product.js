@@ -50,7 +50,7 @@ function saveProduct(){
             } 
         }
     })
-    //window.location.reload(); //recarrega a pagina toda
+    window.location.reload(); //recarrega a pagina toda
 }
 
 function changeProduct(id, product_description, product_price, product_type_id){
