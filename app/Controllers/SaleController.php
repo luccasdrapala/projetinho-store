@@ -23,7 +23,7 @@ class SaleController extends Controller
     public function index(){
 
         View::include('includes/header.php');
-        View::include('sales/index-sales.php', $this->data);
+        View::include('sales/index-sales.php'); //, $this->data);
         View::include('includes/footer.php');
     }
 }

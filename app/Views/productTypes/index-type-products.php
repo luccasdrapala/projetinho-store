@@ -1,4 +1,4 @@
-<div class="typeProductsSection">
+
     <h2 class="mt-4 fw-light">Products Types Register</h2>
     <hr>
 
