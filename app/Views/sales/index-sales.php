@@ -1,8 +1,8 @@
-<h2 class="mt-4 fw-light">Products Register</h2>
+<h2 class="mt-4 fw-light">Sales</h2>
 <hr>
 
 <!-- MODAL TRIGGER -->
-<button type="button" onclick="newSale()" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">New Sale</button>
+<button type="button" onclick="openModal()" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">New Sale</button>
 
 <table class="table mt-3 table-secondary border border-dark">
     <thead class="table-dark">
@@ -26,7 +26,6 @@
             <td><?=$sale->created_at?></td>
             <td>
             <button
-                onclick="editModal()"
                 class="btn btn-success">Sale</button>
             <button class="btn btn-danger">Delete</button>
             </td>
@@ -51,7 +50,7 @@
                         <select id="product" class="custom-select" name="product">
                         <option selected value="#">Select a type</option>
                             <?php foreach($products as $products): ?>
-                            <option value="<?=$products->id?>" data-tax="<?=$product->tax?>" data-price="<?=$product->price?>"><?=$products->description?></option>
+                                <option value="<?=$products->id?>" data-tax="<?=$products->product_tax?>" data-price="<?=$products->price?>"><?=$products->description?></option>
                             <?php endforeach;?>
                         </select>
                     </div>
@@ -94,7 +93,7 @@
                     </div>
                 </div>
 
-                <table class="table mt-3 table-secondary border border-dark">
+                <table class="table mt-3 table-secondary border border-dark" id="tableItensSale">
                     <thead class="table-dark">
                         <tr class="text-center align-middle">
                             <th>#</th>
@@ -103,25 +102,11 @@
                             <th>Price</th>
                             <th>Tax</th>
                             <th>Total Sale</th>
-                            <th>Date</th>
                             <th>Options</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="text-center align-middle">
-                            <td>1</td>
-                            <td>Java como programar</td>
-                            <td>1</td>
-                            <td>100.00</td>
-                            <td>10</td>
-                            <td>110.00</td>
-                            <td>12/02/2023</td>
-                            <td>
-                            <button  
-                                class="btn btn-success">Sale</button>
-                            <button class="btn btn-danger">Delete</button>
-                            </td>
-                        </tr>   
+                    <tbody id="tableBody">
+                           
                     </tbody> 
                 </table>
             </div>

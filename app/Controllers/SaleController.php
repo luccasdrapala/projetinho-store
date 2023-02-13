@@ -19,7 +19,7 @@ class SaleController extends Controller
         $this->saleModel = new SaleModel();
         $this->productModel = new productModel();
         $this->data['sales'] = $this->saleModel->getSales();
-        $this->data['products'] = $this->productModel->get();
+        $this->data['products'] = $this->productModel->getQuery();
 
     }
 
@@ -31,7 +31,10 @@ class SaleController extends Controller
     }
 
     public function getItems(int $id){  
-        return $this->saleModel->getItems($id);
+
+        $response = $this->saleModel->getItems($id);
+        echo json_encode(["data" => $response, "code" => 200]);
+                   
     }
 }
 
