@@ -14,7 +14,7 @@ Executar o arquivo projetinho_store.sql que esta na raiz do projeto
 ```
 composer install
 ```
-### iniciar o seridor
+### Iniciar o seridor
 ```
 php -S localhost:8080
 ```

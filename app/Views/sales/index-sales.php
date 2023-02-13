@@ -4,7 +4,7 @@
 <!-- MODAL TRIGGER -->
 <button type="button" onclick="openModal()" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">New Sale</button>
 
-<table class="table mt-3 table-secondary border border-dark">
+<table class="table mt-3 border border-secondary">
     <thead class="table-dark">
         <tr class="text-center align-middle">
             <th>#</th>
@@ -26,7 +26,7 @@
             <td><?=$sale->created_at?></td>
             <td>
             <button
-                class="btn btn-success">Sale</button>
+                class="btn btn-primary">Sale</button>
             <button class="btn btn-danger">Delete</button>
             </td>
         </tr>
@@ -46,7 +46,7 @@
             <div class="modal-body container"><!--MODAL-->
                 <div class="row">
                     <div class="mt-2 col-3">
-                        <label for="product" class="">Product</label>
+                        <label for="product" class="">Sales</label>
                         <select id="product" class="custom-select" name="product">
                         <option selected value="#">Select a type</option>
                             <?php foreach($products as $products): ?>

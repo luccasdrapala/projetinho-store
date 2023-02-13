@@ -2,11 +2,9 @@
     <h2 class="mt-4 fw-light">Products Types Register</h2>
     <hr>
 
-    <!-- <button class="btn btn-warning mt-3" data-bs-toggle="modal" onclick="clean()" data-bs-target="#staticBackdrop">New Type</button> -->
     <button type="button" onclick="clean()" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">New Type</button>
 
-    <table class="table mt-3 table-secondary border border-dark">
-
+    <table class="table mt-3 border border-secondary">
        <thead class="table-dark">
             <tr class="text-center align-middle">
                 <th>#</th>
@@ -24,7 +22,7 @@
                     <td>
                         <button 
                             onclick="changeType('<?=$product->id?>', '<?=$product->product_description?>', '<?=$product->product_tax?>')" 
-                            class="btn btn-success">
+                            class="btn btn-primary">
                             Update
                         </button>
 
@@ -39,34 +37,31 @@
     </table>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Product Data</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        
-      <div class="mt-2">
-                    <label for="typeProduct" class="form-label">Product Type Description</label>
-                    <input class="form-control" id="typeProduct" type="text">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Product Type</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="mt-2">
+                        <label for="typeProduct" class="form-label">Product Type Description</label>
+                        <input class="form-control" id="typeProduct" type="text">
+                    </div>  
+                    <div class="mt-2">
+                        <label for="taxProduct" class="form-label">Product Tax</label>
+                        <input class="form-control" id="taxProduct" type="number" placeholder="0,00">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="clean()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" onclick="saveType()" class="btn btn-primary">Save changes</button>
                 </div>
 
-                <div class="mt-2">
-                    <label for="taxProduct" class="form-label">Product Tax</label>
-                    <input class="form-control" id="taxProduct" type="number" placeholder="0,00">
-                </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" onclick="clean()" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" onclick="saveType()" class="btn btn-primary">Save changes</button>
-      </div>
-
-    </div>
-    </div>
+            </div>
+        </div>
     </div>
 
     <!-- Delete Modal -->
