@@ -7,7 +7,12 @@ Desafio técnico para a empresa SoftExpert
 
 ### Criação do banco de dados PostgreSQL:
 ```
-Executar o arquivo projetinho_store.sql que esta na raiz do projeto
+Executar o arquivo projetinho_store_postgresql.sql que esta na raiz do projeto
+```
+
+### Criação do banco de dados MySQL:
+```
+Executar o arquivo projetinho_store_mysql.sql que esta na raiz do projeto
 ```
 
 ### Executar o composer
