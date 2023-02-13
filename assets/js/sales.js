@@ -1,26 +1,27 @@
-// document.getElementById('product').addEventListener('change', function(){
+
+
+function addProduct() {
     
-// })
+    console.log("Passei")
+    if(document.getElementById('product').value == "#"){
+        toastr.warning('Product is required', 'Warning')
+        return
+    }
 
-function newSale(){
-    document.getElementById('product').value = '#';
-    document.getElementById('quantity').value = '';
-    document.getElementById('price').value = '';
-    document.getElementById('Tax').value = '';
-    document.getElementById('sale').value = '';
-
-    document.getElementById('totalPrice').value = '';
-    document.getElementById('totalTax').value = '';
-    document.getElementById('totalSale').value = '';
+    if(document.getElementById('quantity').value == 0){
+        toastr.warning('Quantity is required', 'Warning')
+        return
+    }
 
     $.ajax({
-        url: `${BASE_URL}sales/getItems/${id}`,
+        url: `${BASE_URL}sales/getItems/${document.getElementById('product').value}`,
         method: "GET",
         dataType: 'JSON',
         success: (data) => {
             if (data.code === 200) {
-                populateTableItems(data.data)
-                $('#modalSales').modal({backdrop: 'static', keyboard: false})
+                console.log(data.data)
+                // populateTableItems(data.data)
+                // $('#modalSales').modal({backdrop: 'static', keyboard: false})
             }
         },
         error: (e) => {
@@ -28,8 +29,5 @@ function newSale(){
             toastr.error('Ops, a error ocurred!', 'Error!')
         }
     })
+
 }
-
-// function getSales(){
-
-// }

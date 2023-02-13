@@ -16,18 +16,22 @@
         </tr>
     </thead>
     <tbody>
+        
+    <?php foreach($sales as $sale): ?>
         <tr class="text-center align-middle">
-            <td>1</td>
-            <td>199.99</td>
-            <td>10.0</td>
-            <td>119.98</td>
-            <td>12/02/2023</td>
+            <td><?=$sale->id?></td>
+            <td><?=$sale->total_items?></td>
+            <td><?=$sale->total_tax?></td>
+            <td><?=$sale->total_price?></td>
+            <td><?=$sale->created_at?></td>
             <td>
-                <button  
-                    class="btn btn-success">Sale</button>
-                <button class="btn btn-danger">Delete</button>
+            <button
+                onclick="editModal()"
+                class="btn btn-success">Sale</button>
+            <button class="btn btn-danger">Delete</button>
             </td>
-        </tr>   
+        </tr>
+    <?php endforeach; ?>
     </tbody> 
 </table>
 
@@ -46,7 +50,7 @@
                         <label for="product" class="">Product</label>
                         <select id="product" class="custom-select" name="product">
                         <option selected value="#">Select a type</option>
-                            <?php foreach($getProducts as $products): ?>
+                            <?php foreach($products as $products): ?>
                             <option value="<?=$products->id?>" data-tax="<?=$product->tax?>" data-price="<?=$product->price?>"><?=$products->description?></option>
                             <?php endforeach;?>
                         </select>
@@ -71,7 +75,7 @@
 
                 <div class="row">
                     <div class="col mt-3">
-                        <button type="button" class="btn btn-success">Add Product</button>
+                        <button type="button" onclick="addProduct()" class="btn btn-success">Add Product</button>
                     </div>
                 </div>
 

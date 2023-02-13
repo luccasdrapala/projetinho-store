@@ -15,5 +15,6 @@ SimpleRouter::post('/products/update/{id}', 'ProductController@updateProduct');
 SimpleRouter::delete('/products/delete/{id}', 'ProductController@deleteProduct');
 
 SimpleRouter::get('/', 'SaleController@index');
+SimpleRouter::get('/sales/getItems/{id}', 'SaleController@getItems');
 SimpleRouter::post('/sales/create', '');
 

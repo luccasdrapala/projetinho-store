@@ -18,8 +18,8 @@ class SaleController extends Controller
     public function __construct(){
         $this->saleModel = new SaleModel();
         $this->productModel = new productModel();
-        $this->data['sales'] = $this->saleModel->get();
-        $this->data['getProducts'] = $this->productModel->getQuery();
+        $this->data['sales'] = $this->saleModel->getSales();
+        $this->data['products'] = $this->productModel->get();
 
     }
 
@@ -30,8 +30,8 @@ class SaleController extends Controller
         View::include('includes/footer.php');
     }
 
-    public function getAllSales(){
-        $this->saleModel->getAll();
+    public function getItems(int $id){  
+        return $this->saleModel->getItems($id);
     }
 }
 
