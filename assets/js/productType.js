@@ -3,7 +3,7 @@ function clean()
 {   
     document.getElementById("typeProduct").value = '';
     document.getElementById("taxProduct").value = '';
-    document.getElementById("id").value = ''; //testar o erro do id 0
+    document.getElementById("id").value = '';
 }
 
 function saveType(){
@@ -33,7 +33,7 @@ function saveType(){
             } else {
                 console.log('Warning')
             }
-            indow.location.reload(); //recarrega a pagina toda
+            // window.location.reload(); //recarrega a pagina toda
         },
         error: (e) => {
             console.log(e)
@@ -76,14 +76,11 @@ function typeDelete(){
         dataType: 'JSON',
         success: (data) => {
             if (data.code === 200) {
-                toastr.success('Product is deleted!', 'Success!')
                 window.location.reload(); //recarrega a pagina toda
             }
-            window.location.reload(); //recarrega a pagina toda
         },
         error: (e) => {
             toastr.error('Ops, a error ocurred!', 'Error!')
         }
     })
-    window.location.reload(); //recarrega a pagina toda
 }

@@ -41,27 +41,49 @@ class ProductTypeController extends Controller
 
         if(count($validator) > 0){
             
-            echo json_encode(["data" => "Data not found"]);
+            echo json_encode(["code" => 500]);
             exit;
 
         } else {
 
             $response = $this->productTypeModel->insert($data);
-            echo json_encode(["data" => $response]);
+            echo json_encode(["data" => $response, "code" => 201]);
             exit;            
         }
     }
 
     public function updateProductType(int $id) {
 
+        $validator = [];
         $data = $this->inputPost();
+
+        if(empty($_POST['product_description']))
+        {
+            $validator[] = "Product Type is required";
+        }
+
+        if(empty($_POST['product_tax']))
+        {
+            $validator[] = "Product Tax is required";
+        }
+
+        if(count($validator) > 0){
+            
+            echo json_encode(["code" => 500]);
+            exit;
+
+        } else {
+
         $this->productTypeModel->update($id, $data);
+        echo json_encode(["code" => 201]);
         exit;
+        }
     }
 
     public function deleteProductType(int $id){
 
         $this->productTypeModel->delete($id);
+        echo json_encode(["code" => 200]);
     }
 }
 

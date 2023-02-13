@@ -2,7 +2,7 @@
 <hr>
 
 <!-- MODAL TRIGGER -->
-<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">New Sale</button>
+<button type="button" onclick="newSale()" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">New Sale</button>
 
 <table class="table mt-3 table-secondary border border-dark">
     <thead class="table-dark">
@@ -44,8 +44,11 @@
                 <div class="row">
                     <div class="mt-2 col-3">
                         <label for="product" class="">Product</label>
-                        <select id="product" class="custom-select" name="" id="">
-                            <option selected value="#">Select a product</option>
+                        <select id="product" class="custom-select" name="product">
+                        <option selected value="#">Select a type</option>
+                            <?php foreach($getProducts as $products): ?>
+                            <option value="<?=$products->id?>" data-tax="<?=$product->tax?>" data-price="<?=$product->price?>"><?=$products->description?></option>
+                            <?php endforeach;?>
                         </select>
                     </div>
                     <div class="col-2 mt-2">
@@ -57,6 +60,27 @@
                         <input class="form-control" id="price" type="number" placeholder="0,00" disabled>
                     </div>
                     <div class="col-2 mt-2">
+                        <label for="tax" class="form-label">Tax</label>
+                        <input class="form-control" id="tax" type="number" placeholder="0,00" disabled>
+                    </div>
+                    <div class="col-2 mt-2">
+                        <label for="sale" class="form-label">Sale</label>
+                        <input class="form-control" id="sale" type="number" placeholder="0,00" disabled>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col mt-3">
+                        <button type="button" class="btn btn-success">Add Product</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-2 mt-2">
+                        <label for="totalPrice" class="form-label">Price</label>
+                        <input class="form-control" id="price" type="number" placeholder="0,00" disabled>
+                    </div>
+                    <div class="col-2 mt-2">
                         <label for="totalTax" class="form-label">Tax</label>
                         <input class="form-control" id="totalTax" type="number" placeholder="0,00" disabled>
                     </div>
@@ -65,44 +89,38 @@
                         <input class="form-control" id="totalSale" type="number" placeholder="0,00" disabled>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col mt-3">
-                        <button type="button" class="btn btn-success">Add Product</button>
-                    </div>
-                </div>
-    
 
-            <table class="table mt-3 table-secondary border border-dark">
-                <thead class="table-dark">
-                    <tr class="text-center align-middle">
-                    <th>#</th>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Tax</th>
-                    <th>Total Sale</th>
-                    <th>Date</th>
-                    <th>Options</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="text-center align-middle">
-                    <td>1</td>
-                    <td>Java como programar</td>
-                    <td>1</td>
-                    <td>100.00</td>
-                    <td>10</td>
-                    <td>110.00</td>
-                    <td>12/02/2023</td>
-                    <td>
-                        <button  
-                            class="btn btn-success">Sale</button>
-                        <button class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>   
-            </tbody> 
-        </table>
-    </div>
+                <table class="table mt-3 table-secondary border border-dark">
+                    <thead class="table-dark">
+                        <tr class="text-center align-middle">
+                            <th>#</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Tax</th>
+                            <th>Total Sale</th>
+                            <th>Date</th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center align-middle">
+                            <td>1</td>
+                            <td>Java como programar</td>
+                            <td>1</td>
+                            <td>100.00</td>
+                            <td>10</td>
+                            <td>110.00</td>
+                            <td>12/02/2023</td>
+                            <td>
+                            <button  
+                                class="btn btn-success">Sale</button>
+                            <button class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>   
+                    </tbody> 
+                </table>
+            </div>
 
             <!-- MODAL BODY END -->
             <div class="modal-footer">
