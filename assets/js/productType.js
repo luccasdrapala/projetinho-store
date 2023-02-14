@@ -1,15 +1,20 @@
-
-function clean()
-{   
+function cleanType() {
     document.getElementById("typeProduct").value = '';
     document.getElementById("taxProduct").value = '';
     document.getElementById("id").value = '';
 }
 
-function saveType(){
+function saveType() {
+    if (document.getElementById("typeProduct").value == '' ||
+        document.getElementById("taxProduct").value == '' ||
+        parseInt(document.getElementById("taxProduct").value) == 0
+    ) {
+        alert('Preencha todos os campos!');
+        return false;
+    }
 
     const params = {
-        url: `product_types/create`,
+        url: `${BASE_URL}product_types/create`,
         method: 'POST',
         data: {
             product_description: document.getElementById('typeProduct').value,
@@ -17,9 +22,8 @@ function saveType(){
         }
     }
 
-    //if was updated
-    if(document.getElementById('id').value != ''){
-        params.url = `product_types/update/${document.getElementById('id').value}`
+    if (document.getElementById('id').value != ''){
+        params.url = `${BASE_URL}product_types/update/${document.getElementById('id').value}`;
     }
 
     $.ajax({
@@ -29,58 +33,41 @@ function saveType(){
         dataType: 'JSON',
         success: (data) => {
             if (data.code >= 200) {
-                console.log('Sucesso')
+                window.location.reload();
             } else {
-                console.log('Warning')
+                alert('Ocorreu um erro ao salvar o tipo!')
             }
-            // window.location.reload(); //recarrega a pagina toda
         },
         error: (e) => {
-            console.log(e)
-            if (e.responseJSON.code == 400) { 
-                console.log('Warning!')
-            } else {
-                console.log('erro')
-            } 
+            alert('Ocorreu um erro ao salvar o tipo!')
         }
     })
-
-    window.location.reload(); //recarrega a pagina toda
 }
 
 function changeType(id, product_description, product_tax){
-
     new bootstrap.Modal(document.getElementById('exampleModal')).show()
-
     document.getElementById('typeProduct').value = product_description
     document.getElementById('taxProduct').value = product_tax
     document.getElementById('id').value = id
-
 }
 
 function deleteModal(id){
-    
     document.getElementById('id').value = id
-    console.log(id)
     new bootstrap.Modal(document.getElementById('deleteModal')).show()
-
 }
 
 function typeDelete(){
-    
-    console.log(document.getElementById('id').value)
-
     $.ajax({
-        url: `product_types/delete/${document.getElementById('id').value}`,
+        url: `${BASE_URL}product_types/delete/${document.getElementById('id').value}`,
         method: 'DELETE',
         dataType: 'JSON',
         success: (data) => {
             if (data.code === 200) {
-                window.location.reload(); //recarrega a pagina toda
+                window.location.reload();
             }
         },
         error: (e) => {
-            toastr.error('Ops, a error ocurred!', 'Error!')
+            alert('Ocorreu um erro ao deletar o tipo!')
         }
     })
 }

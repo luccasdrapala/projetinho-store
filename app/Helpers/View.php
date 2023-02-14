@@ -2,21 +2,18 @@
 
 namespace App\Helpers;
 
-class View 
+class View
 {
     public static function include(string $viewName, array $data = [])
     {
-        extract($data); //function to put the Model data in index
+        extract($data);
 
-        $file = \dirname(__FILE__, 2). "/Views/{$viewName}"; //verify if the file exists
+        $file = \dirname(__FILE__, 2)."/Views/{$viewName}";
 
-        if(!file_exists($file))
-        {
-            die ("File {$viewName} not Found");
+        if (!file_exists($file)) {
+            die("View {$file} file not exists");
         }
 
         require $file;
     }
 }
-
-?>

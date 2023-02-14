@@ -11,20 +11,4 @@ class ProductTypeModel extends Database{
         parent::__construct();
         $this->table = 'product_type';
     }
-
-    // /**
-    //  * Product Description
-    //  * @var string 
-    //  */
-    // protected string $description;
-
-
-    // /**
-    //  * Product Tax Percentual
-    //  * @var float
-    //  */
-    // protected float $tax;
-
 }
-
-?>

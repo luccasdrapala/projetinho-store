@@ -1,19 +1,21 @@
-function cleanProduct()
-{   
+function cleanProduct() {
     document.getElementById("productDescription").value = '';
     document.getElementById("productPrice").value = '';
     document.getElementById("productType").value = '#';
-    //document.getElementById("id").value = '';
-    // window.onerror=function(){
-    //     alert('An error has occurred!')
-    //     return true
-    // }
 }
 
-function saveProduct(){
+function saveProduct() {
+    if (document.getElementById("productDescription").value == '' ||
+        document.getElementById("productPrice").value == '' ||
+        document.getElementById("productType").value == '#' ||
+        parseInt(document.getElementById("productPrice").value) == 0
+    ) {
+        alert('Preencha todos os campos!');
+        return false;
+    }
 
     const params = {
-        url: `/products/create`,
+        url: `${BASE_URL}products/create`,
         method: 'POST',
         data: {
             description: document.getElementById('productDescription').value,
@@ -22,10 +24,8 @@ function saveProduct(){
         }
     }
 
-    //if was updated
-    if(document.getElementById('id').value != ''){
-        console.log("passei")
-        params.url = `products/update/${document.getElementById('id').value}`
+    if (document.getElementById('id').value != '') {
+        params.url = `${BASE_URL}products/update/${document.getElementById('id').value}`;
     }
 
     $.ajax({
@@ -35,62 +35,46 @@ function saveProduct(){
         dataType: 'JSON',
         success: (data) => {
             if (data.code >= 200) {
-                console.log('Sucesso')
+                window.location.reload();
             } else {
-                console.log('Warning')
+                alert('Ocorreu um erro ao salvar produto!');
             }
-            // window.location.reload(); //recarrega a pagina toda
         },
         error: (e) => {
-            console.log(e)
-            if (e.responseJSON.code == 400) { 
-                console.log('Warning!')
-            } else {
-                console.log('erro')
-            } 
+            alert('Ocorreu um erro ao salvar produto!');
         }
-    })
-    window.location.reload(); //recarrega a pagina toda
+    });
 }
 
 function changeProduct(id, product_description, product_price, product_type_id){
-
-    new bootstrap.Modal(document.getElementById('exampleModal')).show()
-
-    document.getElementById("productDescription").value = product_description
-    document.getElementById("productPrice").value = product_price
-    document.getElementById("productType").value = product_type_id
-    document.getElementById("id").value = id
+    new bootstrap.Modal(document.getElementById('exampleModal')).show();
+    document.getElementById("productDescription").value = product_description;
+    document.getElementById("productPrice").value = product_price;
+    document.getElementById("productType").value = product_type_id;
+    document.getElementById("id").value = id;
 }
 
 
 function showDeleteModal(id){
-
-    document.getElementById('id').value = id
-    console.log('Product modal ' + id)
-    new bootstrap.Modal(document.getElementById('deleteProductModal')).show()
+    document.getElementById('id').value = id;
+    new bootstrap.Modal(document.getElementById('deleteProductModal')).show();
 
 }
 
 function productDelete(){
-
-    console.log(document.getElementById('id').value)
-
     $.ajax({
-        url: `products/delete/${document.getElementById('id').value}`,
+        url: `${BASE_URL}products/delete/${document.getElementById('id').value}`,
         method: 'DELETE',
         dataType: 'JSON',
         success: (data) => {
             if (data.code === 200) {
-                toastr.success('Product is deleted!', 'Success!')
-                //window.location.reload(); //recarrega a pagina toda
+                window.location.reload();
+            } else {
+                alert('Ocorreu um erro ao deletar produto!');
             }
-           // window.location.reload(); //recarrega a pagina toda
         },
         error: (e) => {
-            toastr.error('Ops, a error ocurred!', 'Error!')
-            console.log(e.responseJSON.code)
+            alert('Ocorreu um erro ao deletar produto!');
         }
-    })
-    window.location.reload(); //recarrega a pagina toda
+    });
 }

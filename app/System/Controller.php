@@ -2,7 +2,7 @@
 
 namespace App\System;
 
-class Controller 
+class Controller
 {
     protected array $response;
 
@@ -11,5 +11,3 @@ class Controller
         return filter_var_array($_POST, $filter); //return the filtered array
     }
 }
-
-?>

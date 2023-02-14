@@ -9,9 +9,10 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
 
-<script src="/assets/js/productType.js"></script>
-<script src="/assets/js/product.js"></script>
-<script src="/assets/js/sales.js"></script>
+<script src="<?=BASE_URL?>assets/js/app.js"></script>
+<script src="<?=BASE_URL?>assets/js/productType.js"></script>
+<script src="<?=BASE_URL?>assets/js/product.js"></script>
+<script src="<?=BASE_URL?>assets/js/sales.js"></script>
 
 </body>
 </html>
