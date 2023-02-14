@@ -4,8 +4,7 @@
     <!-- MODAL TRIGGER -->
     <button type="button" onclick="cleanProduct()" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">New Product</button>
 
-    <table class="table mt-3 table-secondary border border-dark">
-
+    <table class="table mt-3 border border-dark">
         <thead class="table-dark">
             <tr class="text-center align-middle">
                 <th>#</th>
@@ -24,7 +23,7 @@
                     <td><?= $products->type_description ?></td>
                     <td>
                         <a href="#">
-                            <button onclick="changeProduct('<?= $products->id ?>', '<?= $products->description ?>', '<?= $products->price ?>', '<?= $products->type_id ?>')" class="btn btn-success">Edit</button>
+                            <button onclick="changeProduct('<?= $products->id ?>', '<?= $products->description ?>', '<?= $products->price ?>', '<?= $products->type_id ?>')" class="btn btn-primary">Edit</button>
                         </a>
 
                         <a href="#">
@@ -41,7 +40,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Product Data</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Product Register</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -62,9 +61,7 @@
                         </div>
 
                         <div class="mt-2 col-6">
-
-                            <label for="productType" class="">Product Type</label>
-
+                            <label for="productType" class="form-label">Product Type</label>
                             <select id="productType" class="custom-select" name="productType" id="" style="width: 100%">
                                 <option selected value="#">Select a type</option>
                                 <?php foreach ($product_type as $type) : ?>

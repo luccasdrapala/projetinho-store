@@ -3,8 +3,7 @@
 
 <button type="button" onclick="cleanType()" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">New Type</button>
 
-<table class="table mt-3 table-secondary border border-dark">
-
+<table class="table mt-3 border border-dark">
     <thead class="table-dark">
         <tr class="text-center align-middle">
             <th>#</th>
@@ -20,7 +19,7 @@
                 <td><?= $product->product_description ?></td>
                 <td><?= $product->product_tax ?></td>
                 <td>
-                    <button onclick="changeType('<?= $product->id ?>', '<?= $product->product_description ?>', '<?= $product->product_tax ?>')" class="btn btn-success">
+                    <button onclick="changeType('<?= $product->id ?>', '<?= $product->product_description ?>', '<?= $product->product_tax ?>')" class="btn btn-primary">
                         Edit
                     </button>
                     <button onclick="deleteModal('<?= $product->id ?>')" class="btn btn-danger">Delete</button>
@@ -35,7 +34,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Product Data</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Product Type</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -57,7 +56,6 @@
                 <button type="button" onclick="clean()" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" onclick="saveType()" class="btn btn-primary">Save changes</button>
             </div>
-
         </div>
     </div>
 </div>
